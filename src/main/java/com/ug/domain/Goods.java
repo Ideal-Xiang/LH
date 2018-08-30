@@ -9,13 +9,22 @@ import java.util.List;
 public class Goods {
     private int id;//商品ID【主键】
     private int sid;//系列ID
+    private String gdname;//商品名称
     private double price;//商品价格
-    private String intro;//商品简介
+    private String gdsintro;//商品简介
     private int logo;//商标【1、正品	2、免税】
     private int color;//颜色【1、灰色	2、黑色】
     private int size;//尺寸【1、M	2、L】
     private String details;//商品详情
     private List<GoodsImg> goodsImgs;//商品图片【一对多】
+
+    public String getGdname() {
+        return gdname;
+    }
+
+    public void setGdname(String gdname) {
+        this.gdname = gdname;
+    }
 
     public int getId() {
         return id;
@@ -41,12 +50,12 @@ public class Goods {
         this.price = price;
     }
 
-    public String getIntro() {
-        return intro;
+    public String getGdsintro() {
+        return gdsintro;
     }
 
-    public void setIntro(String intro) {
-        this.intro = intro;
+    public void setGdsintro(String gdsintro) {
+        this.gdsintro = gdsintro;
     }
 
     public int getLogo() {
@@ -92,11 +101,12 @@ public class Goods {
     public Goods() {
     }
 
-    public Goods(int id, int sid, double price, String intro, int logo, int color, int size, String details, List<GoodsImg> goodsImgs) {
+    public Goods(int id, int sid, String gdname, double price, String gdsintro, int logo, int color, int size, String details, List<GoodsImg> goodsImgs) {
         this.id = id;
         this.sid = sid;
+        this.gdname = gdname;
         this.price = price;
-        this.intro = intro;
+        this.gdsintro = gdsintro;
         this.logo = logo;
         this.color = color;
         this.size = size;
@@ -109,8 +119,9 @@ public class Goods {
         return "Goods{" +
                 "id=" + id +
                 ", sid=" + sid +
+                ", gdname='" + gdname + '\'' +
                 ", price=" + price +
-                ", intro='" + intro + '\'' +
+                ", gdsintro='" + gdsintro + '\'' +
                 ", logo=" + logo +
                 ", color=" + color +
                 ", size=" + size +

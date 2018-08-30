@@ -6,7 +6,7 @@ import java.util.List;
 public class ResultVo<T> {
 	private int code;//成功 1000  失败 2000
 	private String msg;
-	private List<T> data;
+	private Object data;
 	public int getCode() {
 		return code;
 	}
@@ -20,7 +20,7 @@ public class ResultVo<T> {
 		this.msg = msg;
 	}
 
-	public List<T> getData() {
+	public Object getData() {
 		return data;
 	}
 
@@ -28,20 +28,21 @@ public class ResultVo<T> {
 		this.data = data;
 	}
 
-	public ResultVo(int code, String msg) {
+	public ResultVo(int code, String msg,Object data) {
 		super();
 		this.code = code;
 		this.msg = msg;
+		this.data = data;
 	}
 	public ResultVo() {
 		super();
 	}
-	
-	public static ResultVo setOK(String msg) {
-		return new ResultVo(1000, msg);
+
+	public static ResultVo setOK(String msg,Object data) {
+		return new ResultVo(1000, msg, data);
 	}
-	public static ResultVo setERROR(String msg) {
-		return new ResultVo(2000, msg);
+	public static ResultVo setERROR(String msg,Object data) {
+		return new ResultVo(2000, msg, data);
 	}
 	
 
