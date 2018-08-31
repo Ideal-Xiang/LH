@@ -31,20 +31,24 @@ public class SeriesController {
     @ResponseBody
     public ResultVo querySeries(Integer id) {
         System.out.println("接收id：》》》"+id);
-        //
-        Series series =  seriesService.selectById(id);
-        series.setSeriesImgs(seriesImgService.queryById(id));
-        //
-        List<Goods> goodsList = goodsService.selectAll(id);
-        for (Goods i : goodsList) {
-            i.setGoodsImgs(goodsImgService.queryById(i.getId()));
+        if (id != null) {
+            //
+            Series series = seriesService.selectById(id);
+            series.setSeriesImgs(seriesImgService.queryById(id));
+            //
+            List<Goods> goodsList = goodsService.selectAll(id);
+            for (Goods i : goodsList) {
+                i.setGoodsImgs(goodsImgService.queryById(i.getId()));
+            }
+            //
+            SeriesVo seriesVo = new SeriesVo();
+            seriesVo.setSeries(series);
+            seriesVo.setGoodsList(goodsList);
+            System.out.println("seriesVo：》》》" + seriesVo);
+            return ResultVo.setOK("查询成功", seriesVo);
+        } else {
+            return ResultVo.setERROR("查询失败", null);
         }
-        //
-        SeriesVo seriesVo = new SeriesVo();
-        seriesVo.setSeries(series);
-        seriesVo.setGoodsList(goodsList);
-        System.out.println("seriesVo：》》》"+seriesVo);
-        return ResultVo.setOK("查询成功",seriesVo);
     }
 
 
