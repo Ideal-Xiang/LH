@@ -10,4 +10,7 @@ public interface UserService {
     //根据用户名查询用户信息
     public User queryByUserName(String username);
 
+    //根据评论信息中的用户id查询出用户信息
+    User selectByUid(int uid);
+
 }

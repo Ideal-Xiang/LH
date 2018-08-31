@@ -8,7 +8,7 @@ import org.apache.ibatis.annotations.Select;
 public interface UserDao {
 
     //用户注册
-    @Insert("insert into t_user(username,email,phone,password) value(#{username},#{email},#{phone},#{password})")
+    @Insert("insert into t_user(username,email,phone,password,headimg) value(#{username},#{email},#{phone},#{password},201808\\lixiang\\001.jpg)")
     int insert(User user);
 
     //根据用户名查询用户信息
@@ -16,5 +16,8 @@ public interface UserDao {
     @ResultType(User.class)
     public User queryByUserName(String username);
 
-
+    //根据评论信息中的用户id查询出用户信息
+    @Select("select * from t_user where id=#{uid} ")
+    @ResultType(User.class)
+    User selectByUid(int uid);
 }

@@ -15,6 +15,7 @@ public class SeriesImgServiceImpl implements SeriesImgService {
     @Autowired
     private SeriesImgDao dao;
 
+    //根据系列ID查询该系列的所有图片
     @Override
     public List<SeriesImg> queryById(int sid) {
         return dao.queryById(sid);

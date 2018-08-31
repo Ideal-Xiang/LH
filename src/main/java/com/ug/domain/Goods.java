@@ -1,6 +1,8 @@
 package com.ug.domain;
 
 
+import com.ug.common.vo.UserVo;
+
 import java.util.List;
 
 /**
@@ -16,7 +18,25 @@ public class Goods {
     private int color;//颜色【1、灰色	2、黑色】
     private int size;//尺寸【1、M	2、L】
     private String details;//商品详情
+    private int flag;//标记【1、上架  2、下架】
+    private UserVo userVo;//用户评价
     private List<GoodsImg> goodsImgs;//商品图片【一对多】
+
+    public UserVo getUserVo() {
+        return userVo;
+    }
+
+    public void setUserVo(UserVo userVo) {
+        this.userVo = userVo;
+    }
+
+    public int getFlag() {
+        return flag;
+    }
+
+    public void setFlag(int flag) {
+        this.flag = flag;
+    }
 
     public String getGdname() {
         return gdname;
@@ -101,7 +121,7 @@ public class Goods {
     public Goods() {
     }
 
-    public Goods(int id, int sid, String gdname, double price, String gdsintro, int logo, int color, int size, String details, List<GoodsImg> goodsImgs) {
+    public Goods(int id, int sid, String gdname, double price, String gdsintro, int logo, int color, int size, String details, int flag, UserVo userVo, List<GoodsImg> goodsImgs) {
         this.id = id;
         this.sid = sid;
         this.gdname = gdname;
@@ -111,6 +131,8 @@ public class Goods {
         this.color = color;
         this.size = size;
         this.details = details;
+        this.flag = flag;
+        this.userVo = userVo;
         this.goodsImgs = goodsImgs;
     }
 
@@ -126,6 +148,8 @@ public class Goods {
                 ", color=" + color +
                 ", size=" + size +
                 ", details='" + details + '\'' +
+                ", flag=" + flag +
+                ", userVo=" + userVo +
                 ", goodsImgs=" + goodsImgs +
                 '}';
     }

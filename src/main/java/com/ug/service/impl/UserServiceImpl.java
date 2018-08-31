@@ -22,4 +22,10 @@ public class UserServiceImpl implements UserService {
         return dao.queryByUserName(username);
     }
 
+    //根据评论信息中的用户id查询出用户信息
+    @Override
+    public User selectByUid(int uid) {
+        return dao.selectByUid(uid);
+    }
+
 }

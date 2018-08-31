@@ -1,11 +1,15 @@
 package com.ug.domain;
 
+/**
+ * 用户表
+  */
 public class User {
     private int id; //主键
     private String username; //用户名
     private String email; //邮箱
     private String phone; //手机号
     private String password; //密码
+    private String headimg;//用户头像
 
     public int getId() {
         return id;
@@ -47,15 +51,24 @@ public class User {
         this.password = password;
     }
 
+    public String getHeadimg() {
+        return headimg;
+    }
+
+    public void setHeadimg(String headimg) {
+        this.headimg = headimg;
+    }
+
     public User() {
     }
 
-    public User(int id, String username, String email, String phone, String password) {
+    public User(int id, String username, String email, String phone, String password, String headimg) {
         this.id = id;
         this.username = username;
         this.email = email;
         this.phone = phone;
         this.password = password;
+        this.headimg = headimg;
     }
 
     @Override
@@ -66,6 +79,7 @@ public class User {
                 ", email='" + email + '\'' +
                 ", phone='" + phone + '\'' +
                 ", password='" + password + '\'' +
+                ", headimg='" + headimg + '\'' +
                 '}';
     }
 }

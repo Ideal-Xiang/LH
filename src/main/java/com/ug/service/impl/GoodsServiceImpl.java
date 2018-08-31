@@ -14,6 +14,7 @@ public class GoodsServiceImpl implements GoodsService {
     @Autowired
     private GoodsDao dao;
 
+    //通过系列id查询该系列所有商品
     @Override
     public List<Goods> selectAll(int id) {
         return dao.selectAll(id);

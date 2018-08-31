@@ -14,6 +14,7 @@ public class GoodsImgServiceImpl implements GoodsImgService {
     @Autowired
     private GoodsImgDao dao;
 
+    //根据商品ID查询该商品所有图片
     @Override
     public List<GoodsImg> queryById(int gid) {
         return dao.queryById(gid);
