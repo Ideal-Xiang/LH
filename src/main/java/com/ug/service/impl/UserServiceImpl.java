@@ -28,4 +28,10 @@ public class UserServiceImpl implements UserService {
         return dao.selectByUid(uid);
     }
 
+    //修改用户密码
+    @Override
+    public boolean updatePW(User user) {
+        return dao.updatePW(user) > 0;
+    }
+
 }

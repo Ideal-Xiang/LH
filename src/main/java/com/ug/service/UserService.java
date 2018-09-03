@@ -13,4 +13,6 @@ public interface UserService {
     //根据评论信息中的用户id查询出用户信息
     User selectByUid(int uid);
 
+    //修改用户密码
+    boolean updatePW(User user);
 }

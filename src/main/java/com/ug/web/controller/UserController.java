@@ -63,4 +63,11 @@ public class UserController {
             return ResultVo.setERROR("请输入账号和密码",null);
         }
     }
+
+    /*//修改密码
+    @RequestMapping("/updatepw.do")
+    @ResponseBody
+    public ResultVo<User> updatePassWord(User user) {
+
+    }*/
 }
