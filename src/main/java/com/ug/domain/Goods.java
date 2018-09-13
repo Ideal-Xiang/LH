@@ -15,12 +15,53 @@ public class Goods {
     private double price;//商品价格
     private String gdsintro;//商品简介
     private int logo;//商标【1、正品	2、免税】
-    private int color;//颜色【1、灰色	2、黑色】
-    private int size;//尺寸【1、M	2、L】
+    private List<GoodsColorV> colors;//商品颜色【一对多】【1、灰色	2、黑色】
+    private List<Size> sizes;//商品尺寸【一对多】【1、M	2、L】
     private String details;//商品详情
     private int flag;//标记【1、上架  2、下架】
+    private String imgsrc;//图片路径
     private UserVo userVo;//用户评价
     private List<GoodsImg> goodsImgs;//商品图片【一对多】
+
+    public Goods(int id, int sid, String gdname, double price, String gdsintro, int logo, List<GoodsColorV> colors, List<Size> sizes, String details, int flag, String imgsrc, UserVo userVo, List<GoodsImg> goodsImgs) {
+        this.id = id;
+        this.sid = sid;
+        this.gdname = gdname;
+        this.price = price;
+        this.gdsintro = gdsintro;
+        this.logo = logo;
+        this.colors = colors;
+        this.sizes = sizes;
+        this.details = details;
+        this.flag = flag;
+        this.imgsrc = imgsrc;
+        this.userVo = userVo;
+        this.goodsImgs = goodsImgs;
+    }
+
+    public List<GoodsColorV> getColors() {
+        return colors;
+    }
+
+    public void setColors(List<GoodsColorV> colors) {
+        this.colors = colors;
+    }
+
+    public List<Size> getSizes() {
+        return sizes;
+    }
+
+    public void setSizes(List<Size> sizes) {
+        this.sizes = sizes;
+    }
+
+    public String getImgsrc() {
+        return imgsrc;
+    }
+
+    public void setImgsrc(String imgsrc) {
+        this.imgsrc = imgsrc;
+    }
 
     public UserVo getUserVo() {
         return userVo;
@@ -86,21 +127,7 @@ public class Goods {
         this.logo = logo;
     }
 
-    public int getColor() {
-        return color;
-    }
 
-    public void setColor(int color) {
-        this.color = color;
-    }
-
-    public int getSize() {
-        return size;
-    }
-
-    public void setSize(int size) {
-        this.size = size;
-    }
 
     public String getDetails() {
         return details;
@@ -121,36 +148,7 @@ public class Goods {
     public Goods() {
     }
 
-    public Goods(int id, int sid, String gdname, double price, String gdsintro, int logo, int color, int size, String details, int flag, UserVo userVo, List<GoodsImg> goodsImgs) {
-        this.id = id;
-        this.sid = sid;
-        this.gdname = gdname;
-        this.price = price;
-        this.gdsintro = gdsintro;
-        this.logo = logo;
-        this.color = color;
-        this.size = size;
-        this.details = details;
-        this.flag = flag;
-        this.userVo = userVo;
-        this.goodsImgs = goodsImgs;
-    }
 
-    @Override
-    public String toString() {
-        return "Goods{" +
-                "id=" + id +
-                ", sid=" + sid +
-                ", gdname='" + gdname + '\'' +
-                ", price=" + price +
-                ", gdsintro='" + gdsintro + '\'' +
-                ", logo=" + logo +
-                ", color=" + color +
-                ", size=" + size +
-                ", details='" + details + '\'' +
-                ", flag=" + flag +
-                ", userVo=" + userVo +
-                ", goodsImgs=" + goodsImgs +
-                '}';
-    }
+
+
 }
